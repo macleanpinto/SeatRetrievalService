@@ -1,14 +1,19 @@
 package com.alpha.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alpha.component.SeatRetrievalDAO;
+import com.alpha.dto.BayRequestDTO;
 import com.alpha.model.Employee;
 
 @RestController
 public class TestController {
 
+	
 	@RequestMapping(value = "/employee", method = RequestMethod.GET)
 	public Employee firstPage() {
 
@@ -17,7 +22,11 @@ public class TestController {
 		emp.setDesignation("manager");
 		emp.setEmpId("1");
 		emp.setSalary(3000);
-
+		BayRequestDTO request=new BayRequestDTO();
+		request.setBayId("BLR-112");
+		request.setFloorNumber(5);
+		request.setWingId("C1");
+	
 		return emp;
 	}
 
