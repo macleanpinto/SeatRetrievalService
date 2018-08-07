@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alpha.component.controller.SeatRetrievalController;
@@ -20,11 +21,11 @@ public class SeatRetrievalService {
 	SeatRetrievalController seatRetrievalController;
 
 	@RequestMapping(value = "/fetchLayout", method = RequestMethod.GET)
-	public BayLayoutDTO fetchBayLayout() {
+	public BayLayoutDTO fetchBayLayout( @RequestParam("bayId") String bayId, @RequestParam("floorId") String floorId,@RequestParam("wingId") String wingId) {
 		BayRequestDTO bayRequestDTO = new BayRequestDTO();
-		bayRequestDTO.setBayId("BLR-112");
-		bayRequestDTO.setFloorNumber(5);
-		bayRequestDTO.setWingId("C1");
+		bayRequestDTO.setBayId(bayId);
+		bayRequestDTO.setFloorNumber(Integer.valueOf(floorId));
+		bayRequestDTO.setWingId(wingId);
 		BayLayoutDTO baylayout = null;
 		try {
 			baylayout = this.seatRetrievalController.fetchBayLayout(bayRequestDTO);

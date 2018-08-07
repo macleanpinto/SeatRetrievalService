@@ -49,7 +49,7 @@ public class SeatRetrievalDAO {
 
 	}
 
-	public String fetchLayoutIds(BayRequestDTO requestDTO) {
+	public Long fetchLayoutIds(BayRequestDTO requestDTO) {
 		DB database =mongoClient.getDB("seat_allocation_web_app");
 		DBCollection collection = database.getCollection("BAY");
 		DBObject query = new BasicDBObject();
@@ -58,12 +58,12 @@ public class SeatRetrievalDAO {
 		query.put("floorId", requestDTO.getFloorNumber());
 		DBObject results = collection.findOne(query);
 
-		String layoutId= (String) results.get("layoutId");
+		Long layoutId= (Long) results.get("layoutId");
 		return layoutId;
 
 	}
 
-	public List<SeatsInfoDTO> fetchSeatsLayout(String layoutId) {
+	public List<SeatsInfoDTO> fetchSeatsLayout(Long layoutId) {
 		DB database =mongoClient.getDB("seat_allocation_web_app");
 
 		DBCollection collection = database.getCollection("SEAT_LAYOUT");
