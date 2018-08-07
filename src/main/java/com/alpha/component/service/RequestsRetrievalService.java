@@ -1,4 +1,4 @@
-package com.alpha.controllers;
+package com.alpha.component.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alpha.component.constants.StatusMsgCd;
 import com.alpha.component.controller.RequestsRetrievalController;
-import com.alpha.controllers.constants.StatusMsgCd;
-import com.alpha.dto.ResponseListDTO;
-import com.alpha.dto.SeatRequestDTO;
+import com.alpha.component.dto.ResponseListDTO;
+import com.alpha.component.dto.SeatRequestDTO;
 
 @RestController
 @RequestMapping(value = "/api/requestsRetrieval")

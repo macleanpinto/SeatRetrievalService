@@ -1,4 +1,4 @@
-package com.alpha.controllers.constants;
+package com.alpha.component.constants;
 
 public class StatusMsgCd {
 

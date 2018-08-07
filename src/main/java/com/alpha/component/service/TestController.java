@@ -1,10 +1,10 @@
-package com.alpha.controllers;
+package com.alpha.component.service;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alpha.dto.BayRequestDTO;
+import com.alpha.component.dto.BayRequestDTO;
 import com.alpha.model.Employee;
 
 @RestController
