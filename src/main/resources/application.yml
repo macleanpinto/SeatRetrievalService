@@ -3,4 +3,4 @@ eureka:
        serviceUrl:
           defaultZone : https://eureka-server-registry.herokuapp.com/eureka
 server:
-    port: 9000
+    port: 9001
