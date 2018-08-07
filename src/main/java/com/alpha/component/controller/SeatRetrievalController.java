@@ -19,7 +19,7 @@ public class SeatRetrievalController {
 	SeatRetrievalDAO seatRetreivalDAO;
 	
 	public BayLayoutDTO fetchBayLayout(BayRequestDTO bayRequest) {
-		Long layoutId=seatRetreivalDAO.fetchLayoutIds(bayRequest);
+		String layoutId=seatRetreivalDAO.fetchLayoutIds(bayRequest);
 		List<SeatsInfoDTO> seatsInfoDTOs=this.seatRetreivalDAO.fetchSeatsLayout(layoutId);
 		
 		BayLayoutDTO bayLayout=new BayLayoutDTO();

@@ -25,12 +25,13 @@ public class SeatRetrievalDAO {
 	public static final Logger logger = LoggerFactory.getLogger(SeatRetrievalDAO.class);
 
 	@Autowired
-	@Qualifier("mongoDbClient")
+	@Qualifier("mongoClient")
 	private MongoClient mongoClient;
+	
+	
 
 	public BayResultDTO fetchBayLayout(BayRequestDTO requestDTO) {
-		DB database = mongoClient.getDB("SEAT_ALLOCATION_WEB_APPL");
-
+		DB database =mongoClient.getDB("seat_allocation_web_app");
 		DBCollection collection = database.getCollection("BAY_LAYOUT");
 		DBObject query = new BasicDBObject();
 		query.put("bayId", requestDTO.getBayId());
@@ -48,23 +49,22 @@ public class SeatRetrievalDAO {
 
 	}
 
-	public Long fetchLayoutIds(BayRequestDTO requestDTO) {
-		DB database = mongoClient.getDB("SEAT_ALLOCATION_WEB_APPL");
-
-		DBCollection collection = database.getCollection("BAY_LAYOUT");
+	public String fetchLayoutIds(BayRequestDTO requestDTO) {
+		DB database =mongoClient.getDB("seat_allocation_web_app");
+		DBCollection collection = database.getCollection("BAY");
 		DBObject query = new BasicDBObject();
 		query.put("bayId", requestDTO.getBayId());
 		query.put("wingId", requestDTO.getWingId());
 		query.put("floorId", requestDTO.getFloorNumber());
 		DBObject results = collection.findOne(query);
 
-		Long layoutId = (Long) results.get("layoutId");
+		String layoutId= (String) results.get("layoutId");
 		return layoutId;
 
 	}
 
-	public List<SeatsInfoDTO> fetchSeatsLayout(Long layoutId) {
-		DB database = mongoClient.getDB("SEAT_ALLOCATION_WEB_APPL");
+	public List<SeatsInfoDTO> fetchSeatsLayout(String layoutId) {
+		DB database =mongoClient.getDB("seat_allocation_web_app");
 
 		DBCollection collection = database.getCollection("SEAT_LAYOUT");
 		DBObject query = new BasicDBObject();
@@ -74,6 +74,7 @@ public class SeatRetrievalDAO {
 		
 
 		List<SeatsInfoDTO> seatInfoList = new ArrayList<>();
+		try{
 		for (DBObject singleItem : results) {
 			SeatsInfoDTO seatDetails = new SeatsInfoDTO();
 			seatDetails.setSeatColumn((Long) singleItem.get("seatColummnNum"));
@@ -84,7 +85,11 @@ public class SeatRetrievalDAO {
 			seatDetails.setSeatId(String.valueOf(singleItem.get("seatId")));
 			seatInfoList.add(seatDetails);
 		}
-		return seatInfoList;
+		}
+		catch(Exception e) {
+			logger.error("Exception Occured{}".concat(e.getMessage()));
+
+		}	return seatInfoList;
 
 	}
 
