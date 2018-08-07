@@ -4,3 +4,16 @@ eureka:
           defaultZone : https://eureka-server-registry.herokuapp.com/eureka
 server:
     port: 9001
+    
+### MongoDB Configurations
+
+#Local MongoDB config
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      username: myUserAdmin
+      password: abc123
+      database: SEAT_ALLOCATION_WEB_APPL
+      port: 27017
+      host: localhost
