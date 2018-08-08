@@ -3,10 +3,8 @@ package com.alpha.component.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Direction;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,9 +29,8 @@ public class SeatRetrievalService {
         List<SeatDTO> seatResponseList = new ArrayList<>();
         try {
 
-            Sort sortByRowId = new Sort(Direction.ASC, "rowId");
-            seatResponseList = this.seatsArrangementRepository.findByBayIdAndFloorAndBuildingOrderByRowIdAscColIdAsc(bayId,
-                    floor, building);
+            seatResponseList = this.seatsArrangementRepository
+                    .findByBayIdAndFloorAndBuildingOrderByRowIdAscColIdAsc(bayId, floor, building);
             if (CollectionUtils.isNotEmpty(seatResponseList)) {
                 responseListDTO.setResults(convertSeatDTOToDO(seatResponseList));
                 responseListDTO.setStatusCd(StatusMsgCd.RESULT_FOUND);
