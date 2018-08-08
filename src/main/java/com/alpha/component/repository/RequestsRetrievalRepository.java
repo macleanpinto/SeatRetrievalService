@@ -1,4 +1,4 @@
-package com.alpha.component.dao;
+package com.alpha.component.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

@@ -8,8 +8,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 
-import com.alpha.component.dao.RequestsRetrievalRepository;
 import com.alpha.component.dto.SeatRequestDTO;
+import com.alpha.component.repository.RequestsRetrievalRepository;
 
 @Controller("requestsRetrievalController")
 public class RequestsRetrievalController {

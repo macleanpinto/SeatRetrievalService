@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ResponseListDTO<T> extends StatusDTO {
 
-    private transient List<T> results;
+    private List<T> results;
 
     private Integer totalRecords;
 
