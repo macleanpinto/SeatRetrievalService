@@ -14,12 +14,12 @@ import com.alpha.component.repository.RequestsRetrievalRepository;
 @Controller("requestsRetrievalController")
 public class RequestsRetrievalController {
 
-    @Autowired
-    private RequestsRetrievalRepository requestsRetrievalRepository;
+//    @Autowired
+//    private RequestsRetrievalRepository requestsRetrievalRepository;
 
     public List<SeatRequestDTO> fetchAllRequests(Integer page, Integer pageSize) {
         Pageable pageableRequest = new PageRequest(page, pageSize);
-        Page<SeatRequestDTO> pages = requestsRetrievalRepository.findAll(pageableRequest);
+        Page<SeatRequestDTO> pages = null;//requestsRetrievalRepository.findAll(pageableRequest);
         return pages.getContent();
     }
 }
