@@ -1,4 +1,4 @@
-package com.alpha.component.repository;
+package com.seats.component.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
