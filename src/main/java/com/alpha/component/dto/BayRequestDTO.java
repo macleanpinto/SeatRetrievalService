@@ -1,4 +1,4 @@
-package com.alpha.dto;
+package com.alpha.component.dto;
 
 public class BayRequestDTO {
 

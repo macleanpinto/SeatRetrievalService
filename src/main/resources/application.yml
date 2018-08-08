@@ -1,6 +1,11 @@
 eureka:
-    client:
-       serviceUrl:
-          defaultZone : https://eureka-server-registry.herokuapp.com/eureka
+  client:
+    serviceUrl:
+      defaultZone: https://eureka-server-registry.herokuapp.com/eureka
 server:
-    port: 9001
+  port: 9001
+spring:
+  data:
+    mongodb:
+      database: atlas_seat_allocation_web_app
+      uri: mongodb://commonUser:commonuser@maincluster-shard-00-00-aiwyq.mongodb.net:27017,maincluster-shard-00-01-aiwyq.mongodb.net:27017,maincluster-shard-00-02-aiwyq.mongodb.net:27017/admin?replicaSet=MainCluster-shard-0&ssl=true
