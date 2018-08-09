@@ -18,20 +18,20 @@ import com.alpha.component.dto.SeatDTO;
 import com.seats.component.repository.SeatsArrangementRepository;
 
 @RestController
-@RequestMapping(value = "/api/buildingsRetrieval")
-public class BuildingRetrievalService {
+@RequestMapping(value = "/api/bayIdsRetrieval")
+public class BayIdsRetrievalService {
 
 	@Autowired
 	private SeatsArrangementRepository seatsArrangementRepository;
 
-	@RequestMapping(value = "/fetchAllBuildings", method = RequestMethod.GET, produces = "application/json")
-	public ResponseListDTO<String> fetchAllBuildings() {
+	@RequestMapping(value = "/fetchBayIds", method = RequestMethod.GET, produces = "application/json")
+	public ResponseListDTO<String> fetchAllBaysForAFloor(@RequestParam("floor") String floor) {
 		ResponseListDTO<String> responseListDTO = new ResponseListDTO<>();
 		List<SeatDTO> seatDtoList = new ArrayList<>();
 		try {
-			seatDtoList = this.seatsArrangementRepository.findAll();
+			seatDtoList = this.seatsArrangementRepository.findByFloor(floor);
 			if (CollectionUtils.isNotEmpty(seatDtoList)) {
-				responseListDTO.setResults(fetchListOfBuildings(seatDtoList));
+				responseListDTO.setResults(extractListOfBayIds(seatDtoList));
 				responseListDTO.setStatusCd(StatusMsgCd.RESULT_FOUND);
 				responseListDTO.setMsg(StatusMsgCd.RESPONSE_200);
 			} else {
@@ -44,14 +44,13 @@ public class BuildingRetrievalService {
 
 	}
 
-	private List<String> fetchListOfBuildings(List<SeatDTO> seatDtoList) {
+	private List<String> extractListOfBayIds(List<SeatDTO> seatDtoList) {
 
-		Set<String> distinctBuildingNames = new HashSet<String>();
+		Set<String> bayIdSet = new HashSet<String>();
 		for (SeatDTO seatDto : seatDtoList) {
-			distinctBuildingNames.add(seatDto.getBuilding());
+			bayIdSet.add(seatDto.getBayId());
 		}
 
-		return new ArrayList<>(distinctBuildingNames);
+		return new ArrayList<>(bayIdSet);
 	}
-
 }
