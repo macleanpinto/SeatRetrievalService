@@ -33,12 +33,12 @@ public class SeatRetrievalService {
                     .findByBayIdAndFloorAndBuildingOrderByRowIdAscColIdAsc(bayId, floor, building);
             if (CollectionUtils.isNotEmpty(seatResponseList)) {
                 responseListDTO.setResults(convertSeatDTOToDO(seatResponseList));
-                responseListDTO.setStatusCd(StatusMsgCd.RESULT_FOUND);
-                responseListDTO.setMsg(StatusMsgCd.RESPONSE_200);
+                responseListDTO.setStatusCd(StatusMsgCd.RESPONSE_200);
+                responseListDTO.setMsg(StatusMsgCd.RESULT_FOUND);
             }
             else {
-                responseListDTO.setStatusCd(StatusMsgCd.NO_RESULT_FOUND);
-                responseListDTO.setMsg(StatusMsgCd.RESPONSE_404);
+                responseListDTO.setStatusCd(StatusMsgCd.RESPONSE_404);
+                responseListDTO.setMsg(StatusMsgCd.NO_RESULT_FOUND);
             }
         }
         catch (Exception e) {
