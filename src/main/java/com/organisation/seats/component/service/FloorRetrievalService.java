@@ -1,4 +1,4 @@
-package com.alpha.component.service;
+package com.organisation.seats.component.service;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -18,7 +18,6 @@ import com.organisation.seats.component.dto.SeatDTO;
 import com.organisation.seats.component.repository.SeatsArrangementRepository;
 
 
-
 @RestController
 @RequestMapping(value = "/api/floorRetrieval")
 public class FloorRetrievalService {
@@ -34,11 +33,11 @@ public class FloorRetrievalService {
 			seatList = this.seatsArrangementRepository.findByBuilding(building);
 			if (CollectionUtils.isNotEmpty(seatList)) {
 				responseListDTO.setResults(fetchFloorNumber(seatList));
-				responseListDTO.setStatusCd(StatusMsgCd.RESULT_FOUND);
-				responseListDTO.setMsg(StatusMsgCd.RESPONSE_200);
+				responseListDTO.setStatusCd(StatusMsgCd.RESPONSE_200);
+				responseListDTO.setMsg(StatusMsgCd.RESULT_FOUND);
 			} else {
-				responseListDTO.setStatusCd(StatusMsgCd.NO_RESULT_FOUND);
-				responseListDTO.setMsg(StatusMsgCd.RESPONSE_404);
+				responseListDTO.setStatusCd(StatusMsgCd.RESPONSE_404);
+				responseListDTO.setMsg(StatusMsgCd.NO_RESULT_FOUND);
 			}
 		} catch (Exception e) {
 
