@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableMongoRepositories("com.seats.component.repository")
+@EnableMongoRepositories("com.organisation.seats.component.repository")
 public class SeatAllocationStarterApplication {
 
     public static void main(String[] args) {
