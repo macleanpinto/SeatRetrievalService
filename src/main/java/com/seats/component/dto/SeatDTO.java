@@ -1,4 +1,4 @@
-package com.alpha.component.dto;
+package com.seats.component.dto;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;

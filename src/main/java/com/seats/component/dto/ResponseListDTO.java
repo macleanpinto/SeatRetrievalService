@@ -1,4 +1,4 @@
-package com.alpha.component.dto;
+package com.seats.component.dto;
 
 import java.util.List;
 

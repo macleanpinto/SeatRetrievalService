@@ -1,4 +1,4 @@
-package com.alpha;
+package com.seats;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,9 +8,9 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableMongoRepositories("com.seats.component.repository")
-public class SpringBootHelloWorldApplication {
+public class SeatAllocationStarterApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootHelloWorldApplication.class, args);
+        SpringApplication.run(SeatAllocationStarterApplication.class, args);
     }
 }

@@ -1,4 +1,4 @@
-package com.alpha.component.constants;
+package com.seats.component.constants;
 
 public class StatusMsgCd {
 

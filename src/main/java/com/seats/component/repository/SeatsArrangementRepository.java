@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.alpha.component.dto.SeatDTO;
+import com.seats.component.dto.SeatDTO;
 
 public interface SeatsArrangementRepository extends MongoRepository<SeatDTO, String> {
 

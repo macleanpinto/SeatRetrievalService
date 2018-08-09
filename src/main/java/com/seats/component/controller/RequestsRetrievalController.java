@@ -1,4 +1,4 @@
-package com.alpha.component.controller;
+package com.seats.component.controller;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 
-import com.alpha.component.dto.SeatRequestDTO;
+import com.seats.component.dto.SeatRequestDTO;
 import com.seats.component.repository.RequestsRetrievalRepository;
 
 @Controller("requestsRetrievalController")
