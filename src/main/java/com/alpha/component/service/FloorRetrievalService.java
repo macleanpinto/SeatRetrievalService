@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alpha.component.constants.StatusMsgCd;
-import com.alpha.component.dto.ResponseListDTO;
-import com.alpha.component.dto.SeatDTO;
-import com.seats.component.repository.SeatsArrangementRepository;
+import com.organisation.seats.component.constants.StatusMsgCd;
+import com.organisation.seats.component.dto.ResponseListDTO;
+import com.organisation.seats.component.dto.SeatDTO;
+import com.organisation.seats.component.repository.SeatsArrangementRepository;
+
+
 
 @RestController
 @RequestMapping(value = "/api/floorRetrieval")
