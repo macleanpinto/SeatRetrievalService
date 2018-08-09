@@ -1,4 +1,4 @@
-package com.alpha.component.dto;
+package com.organisation.seats.component.dto;
 
 public class StatusDTO {
 
