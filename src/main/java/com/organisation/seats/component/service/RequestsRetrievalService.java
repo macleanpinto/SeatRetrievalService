@@ -1,4 +1,4 @@
-package com.seats.component.service;
+package com.organisation.seats.component.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.seats.component.constants.StatusMsgCd;
-import com.seats.component.controller.RequestsRetrievalController;
-import com.seats.component.dto.ResponseListDTO;
-import com.seats.component.dto.SeatRequestDTO;
+import com.organisation.seats.component.constants.StatusMsgCd;
+import com.organisation.seats.component.controller.RequestsRetrievalController;
+import com.organisation.seats.component.dto.ResponseListDTO;
+import com.organisation.seats.component.dto.SeatRequestDTO;
 
 @RestController
 @RequestMapping(value = "/api/requestsRetrieval")

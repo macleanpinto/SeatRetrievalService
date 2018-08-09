@@ -1,4 +1,4 @@
-package com.seats.component.dto;
+package com.organisation.seats.component.dto;
 
 public class SeatsInfoDTO {
 
