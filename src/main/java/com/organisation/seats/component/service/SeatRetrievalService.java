@@ -14,6 +14,7 @@ import com.organisation.seats.component.constants.StatusMsgCd;
 import com.organisation.seats.component.dto.ResponseListDTO;
 import com.organisation.seats.component.dto.SeatDTO;
 import com.organisation.seats.component.repository.SeatsArrangementRepository;
+import com.organisation.seats.component.utils.SeatUtils;
 
 @RestController
 @RequestMapping(value = "/api/seatRetrieval")
@@ -32,7 +33,7 @@ public class SeatRetrievalService {
             seatResponseList = this.seatsArrangementRepository
                     .findByBayIdAndFloorAndBuildingOrderByRowIdAscColIdAsc(bayId, floor, building);
             if (CollectionUtils.isNotEmpty(seatResponseList)) {
-                responseListDTO.setResults(convertSeatDTOToDO(seatResponseList));
+                responseListDTO.setResults(SeatUtils.convertSeatDTOToDO(seatResponseList));
                 responseListDTO.setStatusCd(StatusMsgCd.RESPONSE_200);
                 responseListDTO.setMsg(StatusMsgCd.RESULT_FOUND);
             }
@@ -46,27 +47,6 @@ public class SeatRetrievalService {
         }
         return responseListDTO;
 
-    }
-
-    private List<List<SeatDTO>> convertSeatDTOToDO(List<SeatDTO> listOfSeat) {
-        List<List<SeatDTO>> SeatDTOList = new ArrayList<List<SeatDTO>>();
-
-        int prevRowNum = -1;
-        for (SeatDTO seatDto : listOfSeat) {
-            List<SeatDTO> seatList = null;
-            if (seatDto.getRowId() > prevRowNum) {
-                seatList = new ArrayList<>();
-                seatList.add(seatDto);
-                SeatDTOList.add(seatList);
-            }
-            else {
-                SeatDTOList.get(seatDto.getRowId()).add(seatDto);
-            }
-            prevRowNum = seatDto.getRowId();
-
-        }
-
-        return SeatDTOList;
     }
 
 }
