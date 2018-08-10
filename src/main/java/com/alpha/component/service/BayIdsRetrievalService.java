@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alpha.component.constants.StatusMsgCd;
-import com.alpha.component.dto.ResponseListDTO;
-import com.alpha.component.dto.SeatDTO;
-import com.seats.component.repository.SeatsArrangementRepository;
+import com.organisation.seats.component.constants.StatusMsgCd;
+import com.organisation.seats.component.dto.ResponseListDTO;
+import com.organisation.seats.component.dto.SeatDTO;
+import com.organisation.seats.component.repository.SeatsArrangementRepository;
 
 @RestController
 @RequestMapping(value = "/api/bayIdsRetrieval")
@@ -32,11 +32,11 @@ public class BayIdsRetrievalService {
 			seatDtoList = this.seatsArrangementRepository.findByFloor(floor);
 			if (CollectionUtils.isNotEmpty(seatDtoList)) {
 				responseListDTO.setResults(extractListOfBayIds(seatDtoList));
-				responseListDTO.setStatusCd(StatusMsgCd.RESULT_FOUND);
-				responseListDTO.setMsg(StatusMsgCd.RESPONSE_200);
+				responseListDTO.setStatusCd(StatusMsgCd.RESPONSE_200);
+				responseListDTO.setMsg(StatusMsgCd.RESULT_FOUND);
 			} else {
-				responseListDTO.setStatusCd(StatusMsgCd.NO_RESULT_FOUND);
-				responseListDTO.setMsg(StatusMsgCd.RESPONSE_404);
+				responseListDTO.setStatusCd(StatusMsgCd.RESPONSE_404);
+				responseListDTO.setMsg(StatusMsgCd.NO_RESULT_FOUND);
 			}
 		} catch (Exception e) {
 		}
