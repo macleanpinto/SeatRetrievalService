@@ -20,6 +20,7 @@ import com.organisation.seats.component.dto.SeatDTO;
 import com.organisation.seats.component.dto.SeatRequestDTO;
 
 @RestController
+@CrossOrigin
 @RequestMapping(value = "/api/requestsRetrieval")
 public class RequestsRetrievalService {
 
