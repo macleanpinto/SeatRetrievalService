@@ -13,7 +13,7 @@ import com.organisation.seats.component.dto.SeatRequestsProcessDTO;
 import com.organisation.seats.component.repository.RequestsRetrievalRepository;
 import com.organisation.seats.component.repository.SeatsArrangementRepository;
 
-@Controller("requestsApprovalController")
+@Controller("requestsProcessController")
 public class RequestsProcessController {
 
     private static final String ERROR_FINDING_REQUEST_ID = "Request Id does not exist in the system.";
