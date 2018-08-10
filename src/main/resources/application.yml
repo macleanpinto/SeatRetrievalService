@@ -7,7 +7,7 @@ eureka:
   instance:
     hostname: ${DOMAIN_NAME}
 server:
-  port: 9001
+  port: 9091
 spring:
   data:
     mongodb:
