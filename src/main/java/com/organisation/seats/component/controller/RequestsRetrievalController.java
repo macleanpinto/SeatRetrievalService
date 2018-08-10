@@ -22,4 +22,8 @@ public class RequestsRetrievalController {
         Page<SeatRequestDTO> pages = requestsRetrievalRepository.findAll(pageableRequest);
         return pages.getContent();
     }
+    
+	public void saveRequestTemplate(SeatRequestDTO seatRequestDTO) {
+		requestsRetrievalRepository.save(seatRequestDTO);
+	}
 }
