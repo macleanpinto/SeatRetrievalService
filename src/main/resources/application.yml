@@ -4,6 +4,7 @@ eureka:
       defaultZone: https://eureka-server-registry.herokuapp.com/eureka
   instance:
     hostname: ${DOMAIN_NAME}
+    prefer-ip-address: false
 server:
   port: 9001
 spring:
