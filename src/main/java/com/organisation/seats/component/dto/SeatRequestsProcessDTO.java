@@ -7,10 +7,12 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-public class SeatRequestsApprovalDTO {
+public class SeatRequestsProcessDTO {
     private String requestId;
 
     private List<String> seatIds;
+
+    private String comments;
 
     public String getRequestId() {
         return requestId;
@@ -26,6 +28,14 @@ public class SeatRequestsApprovalDTO {
 
     public void setSeatIds(List<String> seatIds) {
         this.seatIds = seatIds;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 
     @Override
