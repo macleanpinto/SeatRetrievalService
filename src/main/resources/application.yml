@@ -4,6 +4,9 @@ eureka:
       defaultZone: https://eureka-server-registry.herokuapp.com/eureka
     registerWithEureka: true
     fetchRegistry: true
+  instance:
+    hostname: ${DOMAIN_NAME}
+    nonSecurePort: 8
 server:
   port: 9091
 spring:
