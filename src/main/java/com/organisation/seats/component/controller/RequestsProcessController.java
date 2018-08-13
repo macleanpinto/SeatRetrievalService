@@ -59,7 +59,6 @@ public class RequestsProcessController {
         String responseMsg = StringUtils.EMPTY;
         if (optionalSeatRequest.isPresent()) {
             SeatRequestDTO seatRequest = optionalSeatRequest.get();
-
             seatRequest.setStatus(RequestsContants.REJECTED);
             this.requestsRetrievalRepository.save(seatRequest);
             responseMsg = SEAT_REJECTED_STATUS_UPDATE_SUCCESS_MSG;
