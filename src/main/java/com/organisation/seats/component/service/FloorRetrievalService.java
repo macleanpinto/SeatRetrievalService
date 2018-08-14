@@ -1,11 +1,11 @@
-package com.alpha.component.service;
+package com.organisation.seats.component.service;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,21 +17,22 @@ import com.organisation.seats.component.dto.ResponseListDTO;
 import com.organisation.seats.component.dto.SeatDTO;
 import com.organisation.seats.component.repository.SeatsArrangementRepository;
 
+
 @RestController
-@RequestMapping(value = "/api/bayIdsRetrieval")
-public class BayIdsRetrievalService {
+@RequestMapping(value = "/api/floorRetrieval")
+public class FloorRetrievalService {
 
 	@Autowired
 	private SeatsArrangementRepository seatsArrangementRepository;
 
-	@RequestMapping(value = "/fetchBayIds", method = RequestMethod.GET, produces = "application/json")
-	public ResponseListDTO<String> fetchAllBaysForAFloor(@RequestParam("floor") String floor) {
+	@RequestMapping(value = "/fetchFloorDetail", method = RequestMethod.GET, produces = "application/json")
+	public ResponseListDTO<String> fetchAllRequests(@RequestParam("building") String building) {
 		ResponseListDTO<String> responseListDTO = new ResponseListDTO<>();
-		List<SeatDTO> seatDtoList = new ArrayList<>();
+		List<SeatDTO> seatList = new ArrayList<>();
 		try {
-			seatDtoList = this.seatsArrangementRepository.findByFloor(floor);
-			if (CollectionUtils.isNotEmpty(seatDtoList)) {
-				responseListDTO.setResults(extractListOfBayIds(seatDtoList));
+			seatList = this.seatsArrangementRepository.findByBuilding(building);
+			if (CollectionUtils.isNotEmpty(seatList)) {
+				responseListDTO.setResults(fetchFloorNumber(seatList));
 				responseListDTO.setStatusCd(StatusMsgCd.RESPONSE_200);
 				responseListDTO.setMsg(StatusMsgCd.RESULT_FOUND);
 			} else {
@@ -39,18 +40,17 @@ public class BayIdsRetrievalService {
 				responseListDTO.setMsg(StatusMsgCd.NO_RESULT_FOUND);
 			}
 		} catch (Exception e) {
+
 		}
 		return responseListDTO;
-
 	}
 
-	private List<String> extractListOfBayIds(List<SeatDTO> seatDtoList) {
-
-		Set<String> bayIdSet = new HashSet<String>();
-		for (SeatDTO seatDto : seatDtoList) {
-			bayIdSet.add(seatDto.getBayId());
+	private List<String> fetchFloorNumber(List<SeatDTO> seatList) {
+		Set<String> floorNumberSet = new HashSet<>();
+		for (SeatDTO seatDTO : seatList) {
+			floorNumberSet.add(seatDTO.getFloor());
 		}
+		return new ArrayList<>(floorNumberSet);
 
-		return new ArrayList<>(bayIdSet);
 	}
 }
