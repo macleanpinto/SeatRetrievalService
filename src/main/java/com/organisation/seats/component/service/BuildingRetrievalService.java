@@ -1,4 +1,4 @@
-package com.alpha.component.service;
+package com.organisation.seats.component.service;
 
 import java.util.ArrayList;
 import java.util.HashSet;

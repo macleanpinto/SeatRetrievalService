@@ -12,5 +12,10 @@ public interface SeatsArrangementRepository extends MongoRepository<SeatDTO, Str
             String building);
     
     public List<SeatDTO> findByFloor(String floor);
+    
+    public List<SeatDTO> findByBuilding(String building);
 
 }
+
+	
+
