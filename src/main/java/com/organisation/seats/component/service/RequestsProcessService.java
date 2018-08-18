@@ -3,7 +3,6 @@ package com.organisation.seats.component.service;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,7 +14,6 @@ import com.organisation.seats.component.dto.SeatRequestsProcessDTO;
 import com.organisation.seats.component.dto.StatusDTO;
 
 @RestController
-@CrossOrigin(origins = "*")
 @RequestMapping(value = "/api/requestProcess")
 public class RequestsProcessService {
 

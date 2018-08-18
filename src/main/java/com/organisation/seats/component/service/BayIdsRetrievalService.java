@@ -7,7 +7,6 @@ import java.util.Set;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,7 +17,6 @@ import com.organisation.seats.component.dto.ResponseListDTO;
 import com.organisation.seats.component.dto.SeatDTO;
 import com.organisation.seats.component.repository.SeatsArrangementRepository;
 
-@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value = "/api/bayIdsRetrieval")
 public class BayIdsRetrievalService {
