@@ -13,7 +13,7 @@ import com.organisation.seats.component.dto.SeatRequestsProcessDTO;
 import com.organisation.seats.component.repository.RequestsRetrievalRepository;
 import com.organisation.seats.component.repository.SeatsArrangementRepository;
 
-@Controller("requestsApprovalController")
+@Controller("requestsProcessController")
 public class RequestsProcessController {
 
     private static final String ERROR_FINDING_REQUEST_ID = "Request Id does not exist in the system.";
@@ -59,7 +59,6 @@ public class RequestsProcessController {
         String responseMsg = StringUtils.EMPTY;
         if (optionalSeatRequest.isPresent()) {
             SeatRequestDTO seatRequest = optionalSeatRequest.get();
-
             seatRequest.setStatus(RequestsContants.REJECTED);
             this.requestsRetrievalRepository.save(seatRequest);
             responseMsg = SEAT_REJECTED_STATUS_UPDATE_SUCCESS_MSG;
