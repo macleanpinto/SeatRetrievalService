@@ -53,7 +53,9 @@ public class BayIdsRetrievalService {
 
 	private List<String> extractListOfBayIds(List<SeatDTO> seatDTOList) {
 		Set<String> filteredBays = new HashSet<>();
-		seatDTOList.stream().map(eachSeat -> filteredBays.add(eachSeat.getBayId()));
+		for (SeatDTO eachSeat : seatDTOList) {
+			filteredBays.add(eachSeat.getFloor());
+		}
 		return new ArrayList<>(filteredBays);
 	}
 }

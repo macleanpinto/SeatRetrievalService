@@ -51,8 +51,9 @@ public class BuildingRetrievalService {
 
 	private List<String> fetchListOfBuildings(List<SeatDTO> seatDTOList) {
 		Set<String> buildings = new HashSet<>();
-		logger.info("Seats: ", seatDTOList.size());
-		seatDTOList.stream().map(eachSeat -> buildings.add(eachSeat.getBuilding()));
+		for(SeatDTO eachSeat: seatDTOList) {
+			buildings.add(eachSeat.getBuilding());
+		}
 		return new ArrayList<>(buildings);
 	}
 

@@ -51,9 +51,11 @@ public class FloorRetrievalService {
 		return responseListDTO;
 	}
 
-	private List<String> filterFloorListByBuilding(List<SeatDTO> seatList) {
+	private List<String> filterFloorListByBuilding(List<SeatDTO> seatDTOList) {
 		Set<String> filteredFloors = new HashSet<>();
-		seatList.stream().map(eachSeat -> filteredFloors.add(eachSeat.getFloor()));
+		for(SeatDTO eachSeat: seatDTOList) {
+			filteredFloors.add(eachSeat.getFloor());
+		}
 		return new ArrayList<>(filteredFloors);
 	}
 }
