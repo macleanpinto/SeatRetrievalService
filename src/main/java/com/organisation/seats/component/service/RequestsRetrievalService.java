@@ -7,7 +7,6 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.organisation.seats.component.constants.StatusMsgCd;
 import com.organisation.seats.component.controller.RequestsRetrievalController;
 import com.organisation.seats.component.dto.ResponseListDTO;
-import com.organisation.seats.component.dto.SeatDTO;
 import com.organisation.seats.component.dto.SeatRequestDTO;
 
 @RestController
@@ -49,12 +47,6 @@ public class RequestsRetrievalService {
 
         }
         return responseListDTO;
-
-    }
-    
-    @RequestMapping(value = "/saveRequestTemplate", method = RequestMethod.POST)
-    public void saveTemplate(@RequestBody SeatRequestDTO seatRequestDTO) {
-        this.requestsRetrievalController.saveRequestTemplate(seatRequestDTO);
 
     }
 
