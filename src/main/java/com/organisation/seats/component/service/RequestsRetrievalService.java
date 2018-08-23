@@ -33,18 +33,14 @@ public class RequestsRetrievalService {
         List<SeatRequestDTO> seatRequestList = new ArrayList<>();
         try {
             seatRequestList = this.requestsRetrievalController.fetchAllRequests(page, pageSize);
-            if (CollectionUtils.isNotEmpty(seatRequestList)) {
-                responseListDTO.setResults(seatRequestList);
-                responseListDTO.setStatusCd(StatusMsgCd.RESPONSE_200);
-                responseListDTO.setMsg(StatusMsgCd.RESULT_FOUND);
-            }
-            else {
-                responseListDTO.setStatusCd(StatusMsgCd.RESPONSE_404);
-                responseListDTO.setMsg(StatusMsgCd.NO_RESULT_FOUND);
-            }
+
+            responseListDTO.setResults(seatRequestList);
+            responseListDTO.setStatusCd(StatusMsgCd.RESPONSE_200);
+            responseListDTO.setMsg(StatusMsgCd.RESULT_FOUND);
         }
         catch (Exception e) {
-
+            responseListDTO.setStatusCd(StatusMsgCd.RESPONSE_404);
+            responseListDTO.setMsg(StatusMsgCd.NO_RESULT_FOUND);
         }
         return responseListDTO;
 
